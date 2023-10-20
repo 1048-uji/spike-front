@@ -1,19 +1,12 @@
+import { useQuery } from 'react-query'
 import { MenuIcon } from '../assets/icons/Icon'
 import { Input } from '../components/Input'
-
-import { useQuery } from 'react-query'
-import axios from 'axios'
-
-const fetchRouteData = async () => {
-  const res = await axios.get('https://spike-production.up.railway.app/spike/ruta')
-  console.log(res)
-  return res
-}
+import { apiCall } from '../services/apiCall'
 
 function Home () {
   const { data, isLoading, isError } = useQuery(
     ['routeData'],
-    fetchRouteData()
+    async () => await apiCall.get('/spike/ruta')
   )
 
   return (
