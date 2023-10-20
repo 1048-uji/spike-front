@@ -29,7 +29,7 @@ function Home () {
         />
       </aside>
       <main className='flex-1 bg-gray-100 h-screen'>
-        {isLoading
+        {/* {isLoading
           ? (
             <p>Cargando datos...</p>
             )
@@ -37,16 +37,16 @@ function Home () {
             ? (
               <p>Error al cargar datos.</p>
               )
-            : (
-              <div style={{ height: '100%' }}>
-                <MapContainer center={position} zoom={13} style={{ height: '100%' }}>
-                  <TileLayer
-                    url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  />
-                </MapContainer>
-              </div>
-              )}
+            : ( */}
+        <div style={{ height: '100%' }}>
+          <MapContainer center={position} zoom={13} style={{ height: '100%' }}>
+            <TileLayer
+              url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+          </MapContainer>
+        </div>
+        {/* )} */}
       </main>
     </div>
   )
