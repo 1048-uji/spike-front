@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { MenuIcon } from '../assets/icons/Icon'
 import { Input } from '../components/Input'
 import { apiCall } from '../services/apiCall'
@@ -7,12 +7,14 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 function Home () {
-  const { data, isLoading, isError } = useQuery(
-    ['routeData'],
-    async () => await apiCall.get('/spike/ruta')
-  )
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['routeData'],
+    queryFn: async () => await apiCall.get('/spike/ruta')
+  })
 
   const position = [39.9945, -0.0711]
+
+  console.log(data)
 
   return (
     <div className='flex'>
