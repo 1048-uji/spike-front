@@ -16,10 +16,15 @@ function Home () {
 
   console.log(data)
 
+  const handleSignOut = () => {
+    console.log('Cerrando sesión')
+    // eliminar el token del local storage
+  }
+
   return (
     <div className='flex'>
-      <aside className='w-1/3  h-screen p-10 flex flex-col gap-10'>
-        <header className='h-10 flex '>
+      <aside className='w-1/3 h-screen p-10 flex flex-col'>
+        <header className='h-10 flex mb-5'>
           <MenuIcon className='h-10 w-10 cursor-pointer' />
           <h1 className='flex-1 text-center text-3xl'>Nombre/Logo</h1>
         </header>
@@ -29,17 +34,16 @@ function Home () {
           type='text'
           like
         />
+
+        <button
+          onClick={handleSignOut}
+          className='mt-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        >
+          Cerrar sesión
+        </button>
       </aside>
       <main className='flex-1 bg-gray-100 h-screen'>
-        {/* {isLoading
-          ? (
-            <p>Cargando datos...</p>
-            )
-          : isError
-            ? (
-              <p>Error al cargar datos.</p>
-              )
-            : ( */}
+        {/* Map and other content */}
         <div style={{ height: '100%' }}>
           <MapContainer center={position} zoom={13} style={{ height: '100%' }}>
             <TileLayer
@@ -48,7 +52,6 @@ function Home () {
             />
           </MapContainer>
         </div>
-        {/* )} */}
       </main>
     </div>
   )
